@@ -11,37 +11,69 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
-
+	@Query private var settings: [Settings]
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
-        }
+		VStack {
+			NavigationStack {
+				List {
+					ForEach(items) { item in
+						NavigationLink(value: item) {
+							VStack {
+								Text(item.text)
+									.font(.headline)
+								Text(item.timestamp.formatted(date: .long, time: .shortened))
+							}
+						}
+					}
+				}
+				.onAppear {
+					addSettings()
+				}
+				.navigationDestination(for: Item.self, destination: ItemView.init)
+				.toolbar {
+					Button("Add", action: addItem)
+				}
+				List {
+					ForEach(settings) { setting in
+						NavigationLink(value: setting) {
+							VStack {
+								Text(setting.globalString)
+									.font(.headline)
+								Text(setting.globalInt.formatted(.number))
+							}
+						}
+
+					}
+				}
+				.navigationDestination(for: Settings.self, destination: SettingView.init)
+
+				Text("Outside List")
+			}
+		}
+		
     }
+	
+	private func addSettings() {
+		let pred = #Predicate<Settings> { _ in
+			true
+		}
+		do {
+			let curCount = try modelContext.fetchCount(FetchDescriptor(predicate: pred))
+			if 0 != curCount { return }
+			let settings = Settings(globalInt: 2010, globalString: "STRING IEEE")
+			modelContext.insert(settings)
+		}
+		catch {
+			fatalError("Exception creating settings")
+		}
+
+	}
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+			let id = items.count + 1  // not sufficient of course
+			let text = String("Item \(items.count+1)")
+			let newItem = Item(id: id, timestamp: Date(), text: text)
             modelContext.insert(newItem)
         }
     }

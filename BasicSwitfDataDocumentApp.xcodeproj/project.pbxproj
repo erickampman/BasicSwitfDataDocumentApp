@@ -12,6 +12,8 @@
 		E41B25622B000ECA00FC8FE7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B25612B000ECA00FC8FE7 /* Item.swift */; };
 		E41B25642B000ECB00FC8FE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41B25632B000ECB00FC8FE7 /* Assets.xcassets */; };
 		E41B25672B000ECB00FC8FE7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E41B25662B000ECB00FC8FE7 /* Preview Assets.xcassets */; };
+		E41B256F2B00261600FC8FE7 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41B256E2B00261600FC8FE7 /* ItemView.swift */; };
+		E41D3C1A2B01848200595260 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41D3C192B01848200595260 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		E41B25632B000ECB00FC8FE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E41B25662B000ECB00FC8FE7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E41B25682B000ECB00FC8FE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E41B256E2B00261600FC8FE7 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		E41D3C172B017FDD00595260 /* ItemAppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAppContainer.swift; sourceTree = "<group>"; };
+		E41D3C192B01848200595260 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +61,10 @@
 			children = (
 				E41B255D2B000ECA00FC8FE7 /* BasicSwitfDataDocumentAppApp.swift */,
 				E41B255F2B000ECA00FC8FE7 /* ContentView.swift */,
+				E41B256E2B00261600FC8FE7 /* ItemView.swift */,
+				E41D3C192B01848200595260 /* SettingView.swift */,
 				E41B25612B000ECA00FC8FE7 /* Item.swift */,
+				E41D3C172B017FDD00595260 /* ItemAppContainer.swift */,
 				E41B25632B000ECB00FC8FE7 /* Assets.xcassets */,
 				E41B25682B000ECB00FC8FE7 /* Info.plist */,
 				E41B25652B000ECB00FC8FE7 /* Preview Content */,
@@ -145,6 +153,8 @@
 				E41B25602B000ECA00FC8FE7 /* ContentView.swift in Sources */,
 				E41B25622B000ECA00FC8FE7 /* Item.swift in Sources */,
 				E41B255E2B000ECA00FC8FE7 /* BasicSwitfDataDocumentAppApp.swift in Sources */,
+				E41D3C1A2B01848200595260 /* SettingView.swift in Sources */,
+				E41B256F2B00261600FC8FE7 /* ItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

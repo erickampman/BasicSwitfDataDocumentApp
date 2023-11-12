@@ -39,5 +39,6 @@ struct BasicSwitfDataDocumentAppVersionedSchema: VersionedSchema {
 
     static var models: [any PersistentModel.Type] = [
         Item.self,
+		Settings.self
     ]
 }

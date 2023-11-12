@@ -6,13 +6,33 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ItemView: View {
+	@Environment(\.modelContext) private var modelContext
+	@Bindable var item: Item
+//	@Query private var curItem: Item
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+		Form {
+			TextField("Text", text: $item.text)
+			DatePicker("Date", selection: $item.timestamp)
+		}
+		.navigationTitle("Edit Item")
+		.navigationBarTitleDisplayMode(.inline)
     }
+	
+//	var item: Item {
+//		let pred = #Predicate<Item> {
+//			$0.id == 0
+//		}
+//		let item = modelContext.fetch(FetchDescriptor<PersistentModel>)
+//			
+//		}
+//		return Item(timestamp: <#T##Date#>, text: <#T##String#>)
+//	}
 }
 
-#Preview {
-    ItemView()
-}
+//#Preview {
+//	ItemView(item:)
+//}

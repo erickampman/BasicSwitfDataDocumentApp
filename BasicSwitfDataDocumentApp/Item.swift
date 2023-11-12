@@ -10,9 +10,25 @@ import SwiftData
 
 @Model
 final class Item {
+	@Attribute(.unique) var id: Int
     var timestamp: Date
+	var text: String
 
-    init(timestamp: Date) {
+	init(id: Int, timestamp: Date, text: String) {
+		self.id = id
         self.timestamp = timestamp
+		self.text = text
     }
+}
+
+@Model
+final class Settings {
+	@Attribute(.unique) var id = Int(0)
+	var globalInt: Int
+	var globalString: String
+	
+	init(globalInt: Int, globalString: String) {
+		self.globalInt = globalInt
+		self.globalString = globalString
+	}
 }
